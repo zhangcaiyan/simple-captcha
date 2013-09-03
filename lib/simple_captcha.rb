@@ -1,5 +1,5 @@
 # encoding: utf-8
-
+$:.unshift(File.dirname(__FILE__)+"/contacts/")
 module SimpleCaptcha
   autoload :Utils,             'simple_captcha/utils'
 

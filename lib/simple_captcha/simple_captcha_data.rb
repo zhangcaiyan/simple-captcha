@@ -1,7 +1,7 @@
 module SimpleCaptcha
   class SimpleCaptchaData < ::ActiveRecord::Base
     def self.rails3?
-      ::ActiveRecord::VERSION::MAJOR == 3
+      ::ActiveRecord::VERSION::MAJOR >= 3
     end
 
     if rails3?
@@ -16,7 +16,7 @@ module SimpleCaptcha
     
     class << self
       def get_data(key)
-        data = find_by_key(key) || new(:key => key)
+        data = find_by(key: key) || new(:key => key)
       end
       
       def remove_data(key)
